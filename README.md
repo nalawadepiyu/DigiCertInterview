@@ -1,5 +1,11 @@
 # DigiCertInterview
 DigiCertInterview
+</br>
+</br>
+Run DemoApplication (main method) this will run Springboot application on - http://localhost:8080/h2-ui/
+</br>
+</br>
+
 First - 
 This will create connection with H2 DB
 

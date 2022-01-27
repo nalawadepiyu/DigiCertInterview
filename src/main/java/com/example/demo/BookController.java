@@ -35,10 +35,10 @@ public class BookController {
 
     @GetMapping("/books/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable("id") long id) {
-        Optional<Book> tutorialData = bookRepository.findById(id);
+        Optional<Book> bookData = bookRepository.findById(id);
 
-        if (tutorialData.isPresent()) {
-            return new ResponseEntity<>(tutorialData.get(), HttpStatus.OK);
+        if (bookData.isPresent()) {
+            return new ResponseEntity<>(bookData.get(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -47,9 +47,9 @@ public class BookController {
     @PostMapping("/books")
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
         try {
-            Book _tutorial = bookRepository
+            Book _book = bookRepository
                     .save(new Book(book.getBook_name(), book.getAuthor_name(), book.getIsbn()));
-            return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
+            return new ResponseEntity<>(_book, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
